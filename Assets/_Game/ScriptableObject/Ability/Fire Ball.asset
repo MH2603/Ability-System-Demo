@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c41ec8b2f38404843b1050c90ffcfe37, type: 3}
+  m_Name: Fire Ball
+  m_EditorClassIdentifier: 
+  <AbilityName>k__BackingField: Fire Ball
+  <Stats>k__BackingField:
+  - <StatName>k__BackingField: ExecuteDuration
+    <BaseValue>k__BackingField: 0.5
+  - <StatName>k__BackingField: DMG
+    <BaseValue>k__BackingField: 10
+  - <StatName>k__BackingField: AttackRadius
+    <BaseValue>k__BackingField: 10
+  - <StatName>k__BackingField: ProjectileSpeed
+    <BaseValue>k__BackingField: 10
+  - <StatName>k__BackingField: CoolDown
+    <BaseValue>k__BackingField: 1
+  - <StatName>k__BackingField: DmgRadius
+    <BaseValue>k__BackingField: 1
+  <InputConfig>k__BackingField:
+    primaryKey: 113
+    activationType: 2
+    DetectLayer:
+      serializedVersion: 2
+      m_Bits: 64
+    targetingIndicatorPrefab: {fileID: 4706512571681063179, guid: 867a38da204265c4f8bfa38b05cc05ba,
+      type: 3}
+  ProjectilePrefab: {fileID: 948279139558417764, guid: 24197628bc504384584414ba4f6e4c60,
+    type: 3}
+  TargetLayer:
+    serializedVersion: 2
+    m_Bits: 128

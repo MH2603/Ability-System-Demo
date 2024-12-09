@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ad26046801e1034a88de3f7c443f777, type: 3}
+  m_Name: Buff Ability_Defence
+  m_EditorClassIdentifier: 
+  <AbilityName>k__BackingField: Buff Defence
+  <Stats>k__BackingField:
+  - statType: 2
+    <BaseValue>k__BackingField: 0.5
+  - statType: 4
+    <BaseValue>k__BackingField: 10
+  - statType: 8
+    <BaseValue>k__BackingField: 3
+  - statType: 7
+    <BaseValue>k__BackingField: 0
+  <InputConfig>k__BackingField:
+    primaryKey: 101
+    activationType: 3
+    DetectLayer:
+      serializedVersion: 2
+      m_Bits: 128
+    targetingIndicatorPrefab: {fileID: 3975062414564806068, guid: f50d76883b87b434f8b1218e987425dc,
+      type: 3}
+  <BuffStats>k__BackingField:
+  - statType: 9
+    <BaseValue>k__BackingField: 10
+    <AffectStatName>k__BackingField: Defence
+    <BuffType>k__BackingField: 0
+    <OperationType>k__BackingField: 0
+  <BuffVfxPrefab>k__BackingField: {fileID: 2587953859121880221, guid: 5d4bff403bee1af44989fd6fcafe987d,
+    type: 3}
