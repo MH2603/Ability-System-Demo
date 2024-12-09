@@ -1,22 +1,23 @@
 using MH.UISystem;
 using UniRx;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace MH.UI
 {
     public class MainHUDViewModel : UIViewModel
     {
-        public CharacterStatModelView characterStatModelView = new();
+        public CharacterStatBarViewModel CharacterStatBarViewModel = new();
 
     }
     
     public class MainHUDView  : UIView<MainHUDViewModel>
     {
-        [SerializeField] private CharacterStatView _characterStatView;
+        [FormerlySerializedAs("_characterStatView")] [SerializeField] private CharacterStatBarView characterStatBarView;
         
         protected override void OnSetViewModel(MainHUDViewModel vModel)
         {
-            _characterStatView.SetViewModel(vModel.characterStatModelView);
+            characterStatBarView.SetViewModel(vModel.CharacterStatBarViewModel);
         }
     }
 }

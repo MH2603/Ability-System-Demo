@@ -16,10 +16,10 @@ namespace MH.UI
     {
         protected override void OnShowing(MainHUDModel model)
         {
-            model.MaxHp.Subscribe(maxValue => ViewModel.characterStatModelView.HpBarViewModel.MaxValue.Value = maxValue).AddTo(compositeDisposable);
-            model.CurrentHp.Subscribe(value => ViewModel.characterStatModelView.HpBarViewModel.CurrentValue.Value = value).AddTo(compositeDisposable);  
-            model.MaxMana.Subscribe(value => ViewModel.characterStatModelView.ManaBarViewModel.MaxValue.Value = value).AddTo(compositeDisposable);
-            model.CurrentMana.Subscribe(value => ViewModel.characterStatModelView.ManaBarViewModel.CurrentValue.Value = value).AddTo(compositeDisposable);
+            model.MaxHp.Subscribe(maxValue => ViewModel.CharacterStatBarViewModel.HpBarViewModel.MaxValue.Value = maxValue).AddTo(compositeDisposable);
+            model.CurrentHp.Subscribe(value => ViewModel.CharacterStatBarViewModel.HpBarViewModel.CurrentValue.Value = value).AddTo(compositeDisposable);  
+            model.MaxMana.Subscribe(value => ViewModel.CharacterStatBarViewModel.ManaBarViewModel.MaxValue.Value = value).AddTo(compositeDisposable);
+            model.CurrentMana.Subscribe(value => ViewModel.CharacterStatBarViewModel.ManaBarViewModel.CurrentValue.Value = value).AddTo(compositeDisposable);
         }
     }
 }
