@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: ManaStat
   m_EditorClassIdentifier: 
   <StatName>k__BackingField: Mana
-  <BaseValue>k__BackingField: 100
+  <BaseValue>k__BackingField: 123

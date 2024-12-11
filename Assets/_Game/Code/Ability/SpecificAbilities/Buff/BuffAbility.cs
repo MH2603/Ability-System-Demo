@@ -50,8 +50,8 @@ namespace MH.Ability
                 return;
             }
 
-            CharacterStat targetStatCtrl = targetEntity.Get<CharacterStat>();
-            if (targetStatCtrl == null)
+            CharacterStatController targetStatControllerCtrl = targetEntity.Get<CharacterStatController>();
+            if (targetStatControllerCtrl == null)
             {
                 Debug.Log(" BUG Buff Aility: Target not include CharacterStat !");
                 return;
@@ -59,12 +59,12 @@ namespace MH.Ability
 
             foreach (var buffStat in Config.BuffStats)
             {
-                ApplyBuffForTarget(buffStat, targetStatCtrl);
+                ApplyBuffForTarget(buffStat, targetStatControllerCtrl);
             }
         }
 
 
-        private void ApplyBuffForTarget(BuffStat buffStat, CharacterStat target)
+        private void ApplyBuffForTarget(BuffStat buffStat, CharacterStatController target)
         {
             IModifierOperation operation = null;
             if ( buffStat.OperationType == EModifierOperation.Multi )

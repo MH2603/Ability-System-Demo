@@ -21,7 +21,7 @@ namespace MH.Character
 
         protected CharacterAbilityManager CharacterAbility => entity.Get<CharacterAbilityManager>();
         protected PointContainer PointContainer => entity.Get<PointContainer>();    
-        protected CharacterStat CharacterStat => entity.Get<CharacterStat>();   
+        protected CharacterStatController characterStatController => entity.Get<CharacterStatController>();   
 
         protected CharacterBaseState(EntityBase entity, CharacterStateMachine stateMachine) : base(stateMachine)
         {

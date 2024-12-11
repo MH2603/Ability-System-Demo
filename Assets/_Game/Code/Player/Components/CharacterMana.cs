@@ -1,5 +1,6 @@
 using Foundation.EntitySystem;
 using UniRx;
+using UnityEngine;
 
 namespace MH.Character
 {
@@ -14,10 +15,10 @@ namespace MH.Character
     public class CharacterMana : EntityComponent, ICharacterMana
     {
         private float _currentMana;
-        private CharacterStat _characterStat;
+        private CharacterStatController _characterStatController;
 
         public float CurrentMana => _currentMana;
-        public float MaxMana => _characterStat.GetFinalStatValue("Mana");
+        public float MaxMana => _characterStatController.GetFinalStatValue("Mana");
 
         public Subject<float> OnManaChanged = new();
         
@@ -25,7 +26,8 @@ namespace MH.Character
 
         public override void ManualStart()
         {
-            _characterStat = entity.Get<CharacterStat>();
+            _characterStatController = entity.Get<CharacterStatController>();
+            _currentMana = MaxMana;
         }
 
         #endregion
@@ -40,6 +42,7 @@ namespace MH.Character
             if(!CanUseMana(wantUseValue)) return;   
             
             _currentMana -= wantUseValue;
+            _currentMana = Mathf.Clamp(_currentMana, 0, MaxMana);   
         }
     }
 }

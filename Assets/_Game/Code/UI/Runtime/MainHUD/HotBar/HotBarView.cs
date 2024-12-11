@@ -36,13 +36,14 @@ namespace MH.UI.Ability
         
         protected override void OnSetViewModel(HotBarViewModel vModel)
         {
+            // Debug.Log("Step 03!");
             foreach (var abilityViewModel in vModel.Abilities)
             {
                 var newAbilityView = Instantiate(abilityViewPrefab, abilityViewContainer);
                 newAbilityView.SetViewModel(abilityViewModel);
                 abilityViewMap[abilityViewModel.AbilityName.Value] = newAbilityView;    
             }
-
+            
             foreach (var statViewModel in vModel.Stats)
             {
                 var newStatView = Instantiate(statsViewPrefab, statsViewContainer);

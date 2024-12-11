@@ -44,7 +44,7 @@ namespace MH.Ability
     public class AbilityStat : IBaseStat
     {
         [FormerlySerializedAs("StatType")] [SerializeField] private EAbilityStat statType;
-        [field: SerializeField] public string StatName { get => statType.ToString(); }
+        [SerializeField] public string StatName { get => statType.ToString(); }
         [field: SerializeField] public float BaseValue { get; private set; }
     }
 
@@ -53,7 +53,9 @@ namespace MH.Ability
     public abstract class BaseAbilitySO : ScriptableObject
     {
         #region ---------- Inspector --------------
+        
         [field: SerializeField] public string AbilityName { get; private set; }
+        [field: SerializeField] public Sprite AbilityAvatar { get; private set; }
         [field: SerializeField] public AbilityStat[] Stats { get; private set; }
 
         [field: SerializeField] public AbilityInputConfig InputConfig { get; private set; }

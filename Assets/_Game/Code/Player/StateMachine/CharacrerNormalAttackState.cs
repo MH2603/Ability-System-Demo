@@ -39,7 +39,7 @@ namespace MH.Character
         private float attackRadius => GetFinalAbilityStat(EAbilityStat.Dmg);
         private float projectileSpeed => GetFinalAbilityStat(EAbilityStat.ProjectileSpeed);
         private float projectileRotateSpeed => GetFinalAbilityStat(EAbilityStat.ProjectileRotateSpeed);
-        private float attackSpeed => CharacterStat.GetFinalStatValue("AttackSpeed");
+        private float attackSpeed => characterStatController.GetFinalStatValue("AttackSpeed");
 
         #endregion
 

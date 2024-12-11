@@ -2,6 +2,7 @@ using Foundation.EntitySystem;
 using MH.Ability;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace MH.Character
@@ -24,6 +25,7 @@ namespace MH.Character
         public Action OnAbilityEnter;
         public Action OnAbilityExit;
 
+        public List<IAbility> Abilities => _abilityMap.Values.ToList();
 
         #region ------------ Entity Methods --------------
 
@@ -38,7 +40,7 @@ namespace MH.Character
         public override void ManualUpdate()
         {
             base.ManualUpdate();
-            foreach (var ability in _abilityMap.Values)
+            foreach (var ability in _abilityMap.Values.ToList())
             {
                 ability.UpdateAbility();
             }
@@ -71,7 +73,13 @@ namespace MH.Character
 
         public BaseAbilitySO GetAbilityConfig(string abilityName)
         {
-            return null;  
+            if (!_abilityConfigMap.ContainsKey(abilityName))
+            {
+                Debug.Log($" BUG Ability Config: Not found abilty with name = {abilityName} to get ! ");
+                return null;  
+            }
+            
+            return _abilityConfigMap[abilityName];  
         }
 
         public IAbility GetAbility(string abilityName)

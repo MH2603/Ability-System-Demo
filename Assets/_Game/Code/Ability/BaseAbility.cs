@@ -1,9 +1,7 @@
 using Foundation.EntitySystem;
-using MH.Character;
-using MH.Skill;
 using System;
-using Unity.VisualScripting;
 using UnityEngine;
+using UniRx;
 
 namespace MH.Ability
 {
@@ -19,6 +17,7 @@ namespace MH.Ability
     {
         string Name { get; }
         float Cooldown { get; }
+        ReactiveProperty<float> RemainingCooldown { get;  set;}
         float DmgRadius { get; }
         float AttackLimitMax { get; }
         bool IsReady { get; }
@@ -38,6 +37,7 @@ namespace MH.Ability
 
         public string Name { get; protected set; }
         public float Cooldown => GetFinalAbilityStat(EAbilityStat.CoolDown);
+        public ReactiveProperty<float> RemainingCooldown { get;  set; }
         public float DmgRadius => GetFinalAbilityStat(EAbilityStat.DmgRadius);
         public float AttackLimitMax => GetFinalAbilityStat(EAbilityStat.AttackRadius);
 
@@ -55,6 +55,8 @@ namespace MH.Ability
         {
             Name = config.AbilityName;
             this.Config = config as T;
+            
+            RemainingCooldown = new ();
         }
 
         
@@ -77,13 +79,20 @@ namespace MH.Ability
         {
             if (!IsReady) return;
             LastCastTime = Time.time;
+            RemainingCooldown.Value = Cooldown;
+            
             OnEnter?.Invoke();
             OnExecute(context);
         }
 
         protected abstract void OnExecute(AbilityContext context);
         public virtual void Cancel() { }
-        public virtual void UpdateAbility() { }
+        
+        public virtual void UpdateAbility() 
+        {
+            if( RemainingCooldown.Value > 0) RemainingCooldown.Value -= Time.deltaTime;
+            //Debug.Log("Remaining cooldown: " + RemainingCooldown.Value);
+        }
 
         protected float GetFinalAbilityStat(EAbilityStat statType)
         {

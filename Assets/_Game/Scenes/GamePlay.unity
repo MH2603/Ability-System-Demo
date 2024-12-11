@@ -1137,6 +1137,7 @@ GameObject:
   - component: {fileID: 1496581985}
   - component: {fileID: 1496581987}
   - component: {fileID: 1496581989}
+  - component: {fileID: 1496581990}
   - component: {fileID: 1496581988}
   m_Layer: 0
   m_Name: Player
@@ -1212,6 +1213,7 @@ MonoBehaviour:
   - {fileID: 1496581984}
   - {fileID: 1496581987}
   - {fileID: 1496581989}
+  - {fileID: 1496581990}
   - {fileID: 1496581988}
   <CanUpdate>k__BackingField: 0
 --- !u!143 &1496581978
@@ -1276,9 +1278,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _baseStats:
-  - {fileID: 11400000, guid: c20c69e0a7a5abc48a140e1b366b4bef, type: 2}
-  - {fileID: 11400000, guid: d79ff581df2ce6f40bbb7067c5b02c8d, type: 2}
-  - {fileID: 11400000, guid: 985c32306a118bf468c6a26441196a5a, type: 2}
+  - <characterStatType>k__BackingField: 0
+    <BaseValue>k__BackingField: 10
+  - <characterStatType>k__BackingField: 1
+    <BaseValue>k__BackingField: 10
+  - <characterStatType>k__BackingField: 2
+    <BaseValue>k__BackingField: 150
+  - <characterStatType>k__BackingField: 4
+    <BaseValue>k__BackingField: 1.5
+  - <characterStatType>k__BackingField: 3
+    <BaseValue>k__BackingField: 120
 --- !u!114 &1496581984
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1346,6 +1355,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8b2dd0157064c70878272cf9f781976, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _needShowCharacterStats: 00000000020000000100000004000000
 --- !u!114 &1496581989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1360,6 +1370,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _currentHealth: 0
   _maxHealth: 0
+--- !u!114 &1496581990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1496581972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f181b07cc7794d81956a38d4cd2172dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1551661414
 GameObject:
   m_ObjectHideFlags: 0
@@ -1425,7 +1447,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _baseStats:
-  - {fileID: 11400000, guid: c20c69e0a7a5abc48a140e1b366b4bef, type: 2}
+  - <characterStatType>k__BackingField: 2
+    <BaseValue>k__BackingField: 1000
+  - <characterStatType>k__BackingField: 1
+    <BaseValue>k__BackingField: 10
 --- !u!114 &1657219933
 MonoBehaviour:
   m_ObjectHideFlags: 0

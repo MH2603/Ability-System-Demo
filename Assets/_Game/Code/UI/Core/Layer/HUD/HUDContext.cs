@@ -11,6 +11,6 @@ namespace MH.UISystem.HUD
         where TView : UIView<TViewModel>
         where TViewModel : UIViewModel
     {
-
+        
     }
 }
