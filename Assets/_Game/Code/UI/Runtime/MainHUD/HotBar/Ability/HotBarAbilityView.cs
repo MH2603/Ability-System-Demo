@@ -6,10 +6,25 @@ using UnityEngine.UI;
 
 namespace MH.UI.Ability
 {
+    public class HotBarAbilityModel
+    {
+        public ReactiveProperty<string> AbilityName { get; set; } = new();
+        public ReactiveProperty<Sprite> AbilityAvatar = new();
+        public ReactiveProperty<KeyCode> KeyCode  = new();
+        
+        public ReactiveProperty<bool> IsCoolingDown = new();
+        public ReactiveProperty<float> RemainCoolDown = new();
+        public ReactiveProperty<float> CoolDownDuration = new();
+
+        public ReactiveProperty<bool> IsCasting = new();
+        
+        public ReactiveProperty<bool> IsManaEnough = new();
+    }
+    
     public class HotBarAbilityViewModel : UIViewModel
     {
         public ReactiveProperty<string> AbilityName { get; set; } = new();
-        public ReactiveProperty<Sprite> AbilityIcon = new();
+        public ReactiveProperty<Sprite> AbilityIcon { get; set; } = new();
         public ReactiveProperty<KeyCode> KeyCode  = new();
         
         public ReactiveProperty<bool> IsCoolingDown = new();
@@ -66,10 +81,11 @@ namespace MH.UI.Ability
         private void UpdateCoolDownVisual()
         {
             coolDownVisual.SetActive(ViewModel.IsCoolingDown.Value);
-            if(ViewModel.IsCoolingDown.Value) return;
+            if(!ViewModel.IsCoolingDown.Value) return;
             
-            remainCoolDownText.text = $"{ViewModel.RemainCoolDown.Value : F1}";
+            remainCoolDownText.text = $"{ViewModel.RemainCoolDown.Value:F1}";
             remainCoolDownFillImage.fillAmount = ViewModel.RemainCoolDown.Value / ViewModel.CoolDownDuration.Value;
+            // Debug.Log(" LOg Update Cool Down Fill !");
         }
 
         private void ToggleCastingVisual(bool on)

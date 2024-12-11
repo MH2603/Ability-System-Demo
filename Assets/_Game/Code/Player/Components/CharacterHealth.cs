@@ -20,7 +20,7 @@ namespace MH.Character
         #endregion
 
         //private CharacterWorldSpaceUIController WorldSpaceUIController => entity.Get<CharacterWorldSpaceUIController>();
-        private CharacterStat CharacterStat => entity.Get<CharacterStat>();
+        private CharacterStatController characterStatController => entity.Get<CharacterStatController>();
 
         public float HealthPercentage => _currentHealth / _maxHealth;
         public bool IsDead => Mathf.Approximately(_currentHealth, 0);
@@ -41,7 +41,8 @@ namespace MH.Character
         public override void ManualStart()
         {
             base.ManualStart();
-            _currentHealth = _maxHealth = CharacterStat.GetFinalStatValue("HP");
+            _currentHealth = _maxHealth = characterStatController.GetFinalStatValue(ECharacterStat.HP);
+            
             //entity.ServiceLocator.RegisterAsImplementedInterfaces(this);
         }
 
